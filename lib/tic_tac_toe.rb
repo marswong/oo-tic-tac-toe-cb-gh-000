@@ -49,13 +49,17 @@ class TicTacToe
   def turn_count
     count = 0
 
-    board.each do |x|
+    @board.each do |x|
       if x != " "
         count += 1
       end
     end
 
     return count
+  end
+
+  def current_player(board)
+    return turn_count(board) % 2 == 0 ? "X" : "O"
   end
 end
 
@@ -82,9 +86,6 @@ def turn(board)
 end
 
 
-def current_player(board)
-  return turn_count(board) % 2 == 0 ? "X" : "O"
-end
 
 def won?(board)
   if board.all? { |x| x == " " }
