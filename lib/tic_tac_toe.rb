@@ -123,7 +123,7 @@ class TicTacToe
       puts "Congratulations #{@winner}!"
     end
 
-    if draw?
+    if @draw?
       puts "Cat's Game!"
     end
   end
