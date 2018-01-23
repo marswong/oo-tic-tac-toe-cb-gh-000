@@ -89,41 +89,43 @@ class TicTacToe
       end
     end
   end
-end
 
+  def full?(board)
+    return board.none? { |x| x == "" || x == " " || x == nil }
+  end
 
+  def draw?(board)
+    return !won?(board) && full?(board) && WIN_COMBINATIONS.none? { |comb| include_array?(board, comb) }
+  end
 
+  def over?(board)
+    return won?(board) || draw?(board)
+  end
 
-
-
-
-
-
-
-
-
-
-
-
-def full?(board)
-  return board.none? { |x| x == "" || x == " " || x == nil }
-end
-
-def draw?(board)
-  return !won?(board) && full?(board) && WIN_COMBINATIONS.none? { |comb| include_array?(board, comb) }
-end
-
-def over?(board)
-  return won?(board) || draw?(board)
-end
-
-def winner(board)
-  if won?(board)
-    return board[won?(board)[0]]
-  else
-    return nil
+  def winner(board)
+    if won?(board)
+      return board[won?(board)[0]]
+    else
+      return nil
+    end
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def play(board)
   until over?(board)
