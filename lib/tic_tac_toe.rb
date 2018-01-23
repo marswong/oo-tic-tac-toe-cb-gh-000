@@ -110,8 +110,8 @@ class TicTacToe
     end
   end
 
-  def include_array?(board, comb)
-    return comb.all? { |x| position_taken?(board, x) } && board[comb[0]] == board[comb[1]] && board[comb[1]] == board[comb[2]]
+  def include_array?(comb)
+    return comb.all? { |x| @position_taken?(x) } && @board[comb[0]] == @board[comb[1]] && @board[comb[1]] == @board[comb[2]]
   end
 end
 
