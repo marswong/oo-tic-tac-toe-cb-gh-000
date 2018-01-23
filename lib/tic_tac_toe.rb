@@ -83,7 +83,7 @@ class TicTacToe
       return false
     else
       WIN_COMBINATIONS.each do |comb|
-        if include_array?(board, comb)
+        if @include_array?(comb)
           return comb
         end
       end
