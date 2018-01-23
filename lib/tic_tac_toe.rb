@@ -75,33 +75,35 @@ class TicTacToe
       @turn
     end
   end
-end
 
-
-
-
-
-
-
-
-
-
-
-
-
-def won?(board)
-  if board.all? { |x| x == " " }
-    return false
-  elsif WIN_COMBINATIONS.none? { |comb| include_array?(board, comb) }
-    return false
-  else
-    WIN_COMBINATIONS.each do |comb|
-      if include_array?(board, comb)
-        return comb
+  def won?(board)
+    if board.all? { |x| x == " " }
+      return false
+    elsif WIN_COMBINATIONS.none? { |comb| include_array?(board, comb) }
+      return false
+    else
+      WIN_COMBINATIONS.each do |comb|
+        if include_array?(board, comb)
+          return comb
+        end
       end
     end
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def full?(board)
   return board.none? { |x| x == "" || x == " " || x == nil }
