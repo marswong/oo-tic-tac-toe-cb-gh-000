@@ -114,16 +114,16 @@ class TicTacToe
     return comb.all? { |x| @position_taken?(x) } && @board[comb[0]] == @board[comb[1]] && @board[comb[1]] == @board[comb[2]]
   end
 
-  def play(board)
-    until over?(board)
-      turn(board)
+  def play
+    until @over?
+      @turn
     end
 
-    if won?(board)
-      puts "Congratulations #{winner(board)}!"
+    if @won?
+      puts "Congratulations #{@winner}!"
     end
 
-    if draw?(board)
+    if draw?
       puts "Cat's Game!"
     end
   end
