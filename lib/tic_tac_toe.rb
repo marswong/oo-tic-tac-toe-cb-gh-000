@@ -45,6 +45,18 @@ class TicTacToe
   def valid_move?(index)
     index.between?(0, 8) && !position_taken?(index)
   end
+
+  def turn_count(board)
+    count = 0
+
+    board.each do |x|
+      if x != " "
+        count += 1
+      end
+    end
+
+    return count
+  end
 end
 
 
@@ -69,17 +81,6 @@ def turn(board)
   end
 end
 
-def turn_count(board)
-  count = 0
-
-  board.each do |x|
-    if x != " "
-      count += 1
-    end
-  end
-
-  return count
-end
 
 def current_player(board)
   return turn_count(board) % 2 == 0 ? "X" : "O"
