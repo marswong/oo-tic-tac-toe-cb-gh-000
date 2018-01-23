@@ -90,8 +90,8 @@ class TicTacToe
     end
   end
 
-  def full?(board)
-    return board.none? { |x| x == "" || x == " " || x == nil }
+  def full?
+    return @board.none? { |x| x == "" || x == " " || x == nil }
   end
 
   def draw?(board)
