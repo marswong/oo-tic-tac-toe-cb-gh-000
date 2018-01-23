@@ -113,34 +113,18 @@ class TicTacToe
   def include_array?(comb)
     return comb.all? { |x| @position_taken?(x) } && @board[comb[0]] == @board[comb[1]] && @board[comb[1]] == @board[comb[2]]
   end
-end
 
+  def play(board)
+    until over?(board)
+      turn(board)
+    end
 
+    if won?(board)
+      puts "Congratulations #{winner(board)}!"
+    end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def play(board)
-  until over?(board)
-    turn(board)
-  end
-
-  if won?(board)
-    puts "Congratulations #{winner(board)}!"
-  end
-
-  if draw?(board)
-    puts "Cat's Game!"
+    if draw?(board)
+      puts "Cat's Game!"
+    end
   end
 end
