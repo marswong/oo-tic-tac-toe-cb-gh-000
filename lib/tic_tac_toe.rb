@@ -43,7 +43,7 @@ class TicTacToe
   end
 
   def valid_move?(index)
-    index.between?(0, 8) && !position_taken?(index)
+    index.between?(0, 8) && !@position_taken?(index)
   end
 
   def turn_count
@@ -59,7 +59,7 @@ class TicTacToe
   end
 
   def current_player
-    turn_count % 2 == 0 ? "X" : "O"
+    @turn_count % 2 == 0 ? "X" : "O"
   end
 
   def turn
@@ -68,11 +68,11 @@ class TicTacToe
     input = gets.strip
     index = @input_to_index(input)
 
-    if valid_move?(board, index)
-      move(board, index, current_player(board))
-      display_board(board)
+    if @valid_move?(index)
+      @move(index, @current_player)
+      @display_board
     else
-      turn(board)
+      @turn
     end
   end
 end
