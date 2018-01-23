@@ -21,4 +21,8 @@ class TicTacToe
   def board=(board)
     @board = board
   end
+
+  def display_board
+    
+  end
 end
