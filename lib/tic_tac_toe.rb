@@ -43,7 +43,7 @@ class TicTacToe
   end
 
   def valid_move?(index)
-    index.between?(0, 8) && !@position_taken?(index)
+    index.between?(0, 8) && !self.position_taken?(index)
   end
 
   def turn_count
@@ -59,31 +59,31 @@ class TicTacToe
   end
 
   def current_player
-    @turn_count % 2 == 0 ? "X" : "O"
+    self.turn_count % 2 == 0 ? "X" : "O"
   end
 
   def turn
     puts "Please enter 1-9:"
 
     input = gets.strip
-    index = @input_to_index(input)
+    index = self.input_to_index(input)
 
-    if @valid_move?(index)
-      @move(index, @current_player)
-      @display_board
+    if self.valid_move?(index)
+      self.move(index, self.current_player)
+      self.display_board
     else
-      @turn
+      self.turn
     end
   end
 
   def won?
     if @board.all? { |x| x == " " }
       return false
-    elsif WIN_COMBINATIONS.none? { |comb| @include_array?(comb) }
+    elsif WIN_COMBINATIONS.none? { |comb| self.include_array?(comb) }
       return false
     else
       WIN_COMBINATIONS.each do |comb|
-        if @include_array?(comb)
+        if self.include_array?(comb)
           return comb
         end
       end
@@ -95,35 +95,35 @@ class TicTacToe
   end
 
   def draw?
-    return !@won? && @full? && WIN_COMBINATIONS.none? { |comb| @include_array?(comb) }
+    return !self.won? && self.full? && WIN_COMBINATIONS.none? { |comb| self.include_array?(comb) }
   end
 
   def over?
-    return @won? || @draw?
+    return self.won? || self.draw?
   end
 
   def winner
-    if @won?
-      return @board[@won?[0]]
+    if self.won?
+      return @board[self.won?[0]]
     else
       return nil
     end
   end
 
   def include_array?(comb)
-    return comb.all? { |x| @position_taken?(x) } && @board[comb[0]] == @board[comb[1]] && @board[comb[1]] == @board[comb[2]]
+    return comb.all? { |x| self.position_taken?(x) } && @board[comb[0]] == @board[comb[1]] && @board[comb[1]] == @board[comb[2]]
   end
 
   def play
-    until @over?
-      @turn
+    until self.over?
+      self.turn
     end
 
-    if @won?
-      puts "Congratulations #{@winner}!"
+    if self.won?
+      puts "Congratulations #{self.winner}!"
     end
 
-    if @draw?
+    if self.draw?
       puts "Cat's Game!"
     end
   end
