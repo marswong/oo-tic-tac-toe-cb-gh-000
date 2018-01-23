@@ -94,8 +94,8 @@ class TicTacToe
     return @board.none? { |x| x == "" || x == " " || x == nil }
   end
 
-  def draw?(board)
-    return !won?(board) && full?(board) && WIN_COMBINATIONS.none? { |comb| include_array?(board, comb) }
+  def draw?
+    return !@won? && @full? && WIN_COMBINATIONS.none? { |comb| @include_array?(comb) }
   end
 
   def over?(board)
