@@ -76,7 +76,7 @@ class TicTacToe
     end
   end
 
-  def won?(board)
+  def won?
     if board.all? { |x| x == " " }
       return false
     elsif WIN_COMBINATIONS.none? { |comb| include_array?(board, comb) }
