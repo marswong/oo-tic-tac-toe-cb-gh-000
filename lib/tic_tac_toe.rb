@@ -62,7 +62,7 @@ class TicTacToe
     turn_count % 2 == 0 ? "X" : "O"
   end
 
-  def turn(board)
+  def turn
     puts "Please enter 1-9:"
 
     input = gets.strip
