@@ -109,6 +109,10 @@ class TicTacToe
       return nil
     end
   end
+
+  def include_array?(board, comb)
+    return comb.all? { |x| position_taken?(board, x) } && board[comb[0]] == board[comb[1]] && board[comb[1]] == board[comb[2]]
+  end
 end
 
 
@@ -139,9 +143,4 @@ def play(board)
   if draw?(board)
     puts "Cat's Game!"
   end
-end
-
-# Helper
-def include_array?(board, comb)
-  return comb.all? { |x| position_taken?(board, x) } && board[comb[0]] == board[comb[1]] && board[comb[1]] == board[comb[2]]
 end
